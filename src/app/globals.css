@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/* Colours of the app (mobile/src/constants/theme.ts), light and dark */
+:root {
+  --page: #f6f7f8;
+  --surface: #ffffff;
+  --soft: #f1f3f5;
+  --line: #e2e5e9;
+  --ink: #14171a;
+  --ink-2: #5f6670;
+  --ink-3: #8a919a;
+  --accent: #14171a;
+  --on-accent: #ffffff;
+  --ok: #1e7f55;
+  --ok-soft: #e4f4ec;
+  --warn: #9a5b00;
+  --warn-soft: #fff2db;
+  --bad: #c93434;
+  --bad-soft: #fcecec;
+  --info: #1f5fa8;
+  --info-soft: #e6f0fb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #0e1012;
+    --surface: #17191c;
+    --soft: #23272b;
+    --line: #2a2e33;
+    --ink: #f2f3f5;
+    --ink-2: #a2a9b3;
+    --ink-3: #737a84;
+    --accent: #f2f3f5;
+    --on-accent: #0e1012;
+    --ok: #5ccb93;
+    --ok-soft: #163323;
+    --warn: #f0b04a;
+    --warn-soft: #33260f;
+    --bad: #ff6b6b;
+    --bad-soft: #3a1719;
+    --info: #7fb2ec;
+    --info-soft: #14263b;
+  }
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-bad: var(--bad);
+  --color-bad-soft: var(--bad-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-sans: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
