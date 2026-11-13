@@ -9,9 +9,9 @@ import { errorText, useLoad } from "@/lib/use-load";
 
 /** One member: edit details, role and block (not for your own account), and their cars. */
 export function MemberModal({ member, onClose, onChange }: { member: User; onClose: () => void; onChange: (u: User) => void }) {
-  const { t } = useI18n();
+  const { t, fmt } = useI18n();
   const [me, setMe] = useState<string | null>(null);
-  const [form, setForm] = useState({ name: member.name, phone: member.phone, apartmentName: member.apartmentName, email: member.email ?? "" });
+  const [form, setForm] = useState({ name: member.name, phone: fmt.phone(member.phone), apartmentName: member.apartmentName, email: member.email ?? "" });
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
