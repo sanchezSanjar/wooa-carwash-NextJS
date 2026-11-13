@@ -228,8 +228,8 @@ function Editor({
                         </a>
                       </td>
                       <td className="px-3 py-2.5 text-[13px]">
-                        {r.tariffName}
-                        {r.extras.length ? <span className="block text-xs text-ink-2">+ {r.extras.join(", ")}</span> : null}
+                        {fmt.name(r.tariffName)}
+                        {r.extras.length ? <span className="block text-xs text-ink-2">+ {r.extras.map(fmt.name).join(", ")}</span> : null}
                       </td>
                       <td className="px-3 py-2.5">
                         <Select value={r.washerId ?? ""} onChange={(e) => patch(k, { washerId: e.target.value || null, washerName: washerName(e.target.value || null) })} className="h-8 max-w-36 text-[13px]" aria-label={t("Washer")}>

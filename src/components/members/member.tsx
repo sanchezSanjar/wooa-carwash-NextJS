@@ -130,7 +130,7 @@ function MemberCars({ memberId }: { memberId: string }) {
               <p className="mt-1 text-[13px]">
                 {plan ? (
                   <>
-                    <Badge tone="ok">{plan.tariffName}</Badge> <span className="text-ink-2">{fmt.krw(plan.monthlyPrice)} / {t("month")}</span>
+                    <Badge tone="ok">{fmt.name(plan.tariffName)}</Badge> <span className="text-ink-2">{fmt.krw(plan.monthlyPrice)} / {t("month")}</span>
                   </>
                 ) : (
                   <Badge>{t("No active plan")}</Badge>

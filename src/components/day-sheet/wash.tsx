@@ -46,8 +46,8 @@ export function WashModal({ subscriptionId, date, onClose }: { subscriptionId: s
           <div className="flex flex-wrap items-center gap-2 text-[13px]">
             <WashBadge status={data.status} />
             <span className="text-ink-2">
-              {data.tariffName}
-              {data.extras.length ? ` + ${data.extras.join(", ")}` : ""}
+              {fmt.name(data.tariffName)}
+              {data.extras.length ? ` + ${data.extras.map(fmt.name).join(", ")}` : ""}
             </span>
             {data.washedOn && data.washedOn !== date ? <span className="text-ink-2">· {t("washed on {date}", { date: fmt.day(data.washedOn) })}</span> : null}
             {data.note ? <span className="text-ink-2">· {data.note}</span> : null}

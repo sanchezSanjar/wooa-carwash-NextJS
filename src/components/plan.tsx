@@ -30,7 +30,7 @@ export function PlanModal({ plan, onClose, onCancelled }: { plan: AdminSubscript
   };
 
   return (
-    <Modal title={`${plan.car?.plateNumber ?? ""} · ${plan.tariffName}`} onClose={onClose} wide>
+    <Modal title={`${plan.car?.plateNumber ?? ""} · ${fmt.name(plan.tariffName)}`} onClose={onClose} wide>
       <div className="flex flex-col gap-5">
         {error ? <Banner>{error}</Banner> : null}
         <div className="grid gap-4 sm:grid-cols-2">
@@ -46,7 +46,7 @@ export function PlanModal({ plan, onClose, onCancelled }: { plan: AdminSubscript
             <dt className="text-ink-3">{t("Wash days")}</dt>
             <dd>{fmt.schedule(plan.schedule)}</dd>
             <dt className="text-ink-3">{t("Extras")}</dt>
-            <dd>{plan.extras.length ? plan.extras.map((e) => `${e.name} (${fmt.krw(e.price)})`).join(", ") : "—"}</dd>
+            <dd>{plan.extras.length ? plan.extras.map((e) => `${fmt.name(e.name)} (${fmt.krw(e.price)})`).join(", ") : "—"}</dd>
             <dt className="text-ink-3">{t("Per month")}</dt>
             <dd className="font-medium">
               {fmt.krw(plan.monthlyPrice)} <span className="font-normal text-ink-3">({t("plan {price}", { price: fmt.krw(plan.tariffPrice) })})</span>

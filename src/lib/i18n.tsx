@@ -25,6 +25,8 @@ function makeFmt(lang: Lang) {
     phone: f.phone,
     dateTime: (iso: string) => f.dateTime(iso, lang),
     schedule: (s: { weekday: number; weeks: number[] }[]) => f.scheduleText(s, lang),
+    /** A plan or extra name: the built-in ones in Korean, names admins typed stay as typed. */
+    name: (n: string) => translate(lang, n),
   };
 }
 

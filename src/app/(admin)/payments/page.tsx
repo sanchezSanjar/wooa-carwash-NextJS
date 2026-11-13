@@ -135,7 +135,7 @@ function PaymentsPage() {
                 <td className="whitespace-nowrap">{fmt.month(b.month)}</td>
                 <td className="font-medium whitespace-nowrap tabular-nums">
                   {fmt.krw(b.amount)}
-                  <span className="block text-xs font-normal text-ink-3">{b.lines.map((l) => l.name ?? l.label).join(" + ")}</span>
+                  <span className="block text-xs font-normal text-ink-3">{b.lines.map((l) => (l.name ? fmt.name(l.name) : l.label)).join(" + ")}</span>
                 </td>
                 <td className="whitespace-nowrap">{fmt.day(b.dueDate)}</td>
                 <td className="whitespace-nowrap">

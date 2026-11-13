@@ -44,7 +44,7 @@ export default function PricesPage() {
               <PriceRow
                 key={x.id}
                 item={x}
-                detail={x.description}
+                detail={t(x.description)}
                 save={(body) => api.updateExtra(x.id, body)}
                 onSaved={(u) => setData((d) => ({ ...d!, extras: d!.extras.map((v) => (v.id === u.id ? u : v)) }))}
               />
@@ -91,7 +91,7 @@ function PriceRow({
   return (
     <tr>
       <td className="font-medium">
-        {item.name}
+        {fmt.name(item.name)}
         {error ? <span className="block text-xs font-normal text-bad">{error}</span> : null}
       </td>
       <td className="text-[13px] text-ink-2">{detail}</td>

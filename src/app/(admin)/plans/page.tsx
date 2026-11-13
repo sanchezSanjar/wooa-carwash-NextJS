@@ -38,7 +38,7 @@ export default function PlansPage() {
             <option value="">{t("All plans")}</option>
             {tariffs.map((name) => (
               <option key={name} value={name}>
-                {name}
+                {fmt.name(name)}
               </option>
             ))}
           </Select>
@@ -64,8 +64,8 @@ export default function PlansPage() {
                   <span className="block text-xs text-ink-3">{p.member?.apartmentName}</span>
                 </td>
                 <td>
-                  <Badge tone="info">{p.tariffName}</Badge>
-                  {p.extras.length ? <span className="block text-xs text-ink-2">+ {p.extras.map((e) => e.name).join(", ")}</span> : null}
+                  <Badge tone="info">{fmt.name(p.tariffName)}</Badge>
+                  {p.extras.length ? <span className="block text-xs text-ink-2">+ {p.extras.map((e) => fmt.name(e.name)).join(", ")}</span> : null}
                 </td>
                 <td className="text-[13px]">{fmt.schedule(p.schedule)}</td>
                 <td className="font-medium whitespace-nowrap tabular-nums">{fmt.krw(p.monthlyPrice)}</td>
