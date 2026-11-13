@@ -1,6 +1,6 @@
 # 우아세차 (Wooa Carwash) admin
 
-The admin website for Wooa Carwash, a subscription car wash for apartment complexes. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. The backend (NestJS API and scheduled jobs) and the customer app live in [wooa-carwash](https://github.com/sanchezSanjar/wooa-carwash).
+The admin website for Wooa Carwash, a subscription car wash for apartment complexes. Built with Next.js 16, React 19, TypeScript and Tailwind CSS 4. The backend (NestJS API and scheduled jobs) is in [wooa-carwash](https://github.com/sanchezSanjar/wooa-carwash), the customer app and website in [wooa-carwash-app](https://github.com/sanchezSanjar/wooa-carwash-app).
 
 ## Pages
 
