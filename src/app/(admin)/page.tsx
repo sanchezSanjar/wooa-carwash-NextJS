@@ -120,8 +120,8 @@ export default function OverviewPage() {
                       {r.car.buildingNumber} · {r.car.parkingFloor}
                     </td>
                     <td className="font-medium whitespace-nowrap">{r.car.plateNumber}</td>
-                    <td className="text-ink-2">{r.member.name}</td>
-                    <td className="text-ink-2">{r.washerName ?? "—"}</td>
+                    <td className="text-ink-2 whitespace-nowrap">{r.member.name}</td>
+                    <td className="text-ink-2 whitespace-nowrap">{r.washerName ?? "—"}</td>
                     <td>
                       <WashBadge status={r.status} />
                     </td>
