@@ -103,6 +103,7 @@ export const api = {
     request<User>("PATCH", `/members/${id}`, body),
   carsForMember: (ownerId: string) => request<Car[]>("GET", `/cars${q({ ownerId })}`),
   subscriptions: () => request<AdminSubscription[]>("GET", "/subscriptions"),
+  cancelSubscription: (id: string) => request<AdminSubscription>("PATCH", `/subscriptions/${id}/cancel`),
 
   // prices
   allTariffs: () => request<Tariff[]>("GET", "/admin/tariffs"),
