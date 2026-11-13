@@ -221,7 +221,7 @@ function Editor({
                           </span>
                         ) : null}
                       </td>
-                      <td className="px-3 py-2.5">
+                      <td className="px-3 py-2.5 whitespace-nowrap">
                         {r.member.name}
                         <a href={`tel:${r.member.phone}`} className="block text-xs text-info hover:underline">
                           {fmt.phone(r.member.phone)}
