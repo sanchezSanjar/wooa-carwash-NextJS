@@ -24,6 +24,7 @@ function makeFmt(lang: Lang) {
     krw: (n: number) => f.krw(n, lang),
     phone: f.phone,
     dateTime: (iso: string) => f.dateTime(iso, lang),
+    schedule: (s: { weekday: number; weeks: number[] }[]) => f.scheduleText(s, lang),
   };
 }
 

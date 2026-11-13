@@ -63,3 +63,18 @@ export function phone(digits: string): string {
 export function dateTime(iso: string, lang: Lang): string {
   return new Date(iso).toLocaleString(lang === "ko" ? "ko-KR" : "en-GB", { timeZone: TZ, dateStyle: "medium", timeStyle: "short" });
 }
+
+const WEEKDAY_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const ORDINAL_KO = ["", "첫째", "둘째", "셋째", "넷째"];
+const ORDINAL_EN = ["", "1st", "2nd", "3rd", "4th"];
+
+/** Wash days of a plan: "Thu, every week" / "목요일 매주", "Mon 1st and 3rd" / "첫째·셋째 주 월요일". */
+export function scheduleText(schedule: { weekday: number; weeks: number[] }[], lang: Lang): string {
+  return schedule
+    .map(({ weekday, weeks }) => {
+      const every = weeks.length >= 4;
+      if (lang === "ko") return every ? `매주 ${WEEKDAY_KO[weekday]}요일` : `${weeks.map((w) => ORDINAL_KO[w]).join("·")} 주 ${WEEKDAY_KO[weekday]}요일`;
+      return every ? `${WEEKDAY_EN[weekday]}, every week` : `${WEEKDAY_EN[weekday]} ${weeks.map((w) => ORDINAL_EN[w]).join(" and ")}`;
+    })
+    .join(lang === "ko" ? ", " : "; ");
+}
